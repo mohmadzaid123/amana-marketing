@@ -1,5 +1,7 @@
 "use client";
 
+// Device View - Compare Desktop vs Mobile Performance
+
 import { Navbar } from '../../src/components/ui/navbar';
 import { Footer } from '../../src/components/ui/footer';
 import { CardMetric } from '../../src/components/ui/card-metric';
