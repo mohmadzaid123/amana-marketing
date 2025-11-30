@@ -169,14 +169,14 @@ export default function DeviceView() {
     .sort((a, b) => parseFloat(b!.revenue.replace(/[$,]/g, '')) - parseFloat(a!.revenue.replace(/[$,]/g, ''))) || [];
 
   const tableColumns = [
-    { key: "campaign", label: "Campaign", sortable: true },
-    { key: "impressions", label: "Impressions", sortable: true },
-    { key: "clicks", label: "Clicks", sortable: true },
-    { key: "conversions", label: "Conversions", sortable: true },
-    { key: "spend", label: "Spend", sortable: true },
-    { key: "revenue", label: "Revenue", sortable: true },
-    { key: "ctr", label: "CTR", sortable: true },
-    { key: "roas", label: "ROAS", sortable: true }
+    { key: "campaign", header: "Campaign", sortable: true },
+    { key: "impressions", header: "Impressions", sortable: true },
+    { key: "clicks", header: "Clicks", sortable: true },
+    { key: "conversions", header: "Conversions", sortable: true },
+    { key: "spend", header: "Spend", sortable: true },
+    { key: "revenue", header: "Revenue", sortable: true },
+    { key: "ctr", header: "CTR", sortable: true },
+    { key: "roas", header: "ROAS", sortable: true }
   ];
 
   if (loading) {
@@ -217,32 +217,24 @@ export default function DeviceView() {
               title="Mobile Clicks"
               value={mobileData.clicks.toLocaleString()}
               icon={<MousePointerClick className="w-6 h-6" />}
-              trend={`CTR: ${mobileCTR.toFixed(2)}%`}
-              isPositive={true}
               className="bg-gradient-to-br from-blue-600 to-blue-700"
             />
             <CardMetric
               title="Mobile Spend"
               value={`$${mobileData.spend.toLocaleString()}`}
               icon={<TrendingUp className="w-6 h-6" />}
-              trend={`${mobileData.traffic.toFixed(0)}% of traffic`}
-              isPositive={false}
               className="bg-gradient-to-br from-orange-600 to-orange-700"
             />
             <CardMetric
               title="Mobile Revenue"
               value={`$${mobileData.revenue.toLocaleString()}`}
               icon={<DollarSign className="w-6 h-6" />}
-              trend={`ROAS: ${mobileROAS.toFixed(2)}`}
-              isPositive={true}
               className="bg-gradient-to-br from-green-600 to-green-700"
             />
             <CardMetric
               title="Mobile Conversions"
               value={mobileData.conversions.toLocaleString()}
               icon={<Target className="w-6 h-6" />}
-              trend={`Conv. Rate: ${mobileConversionRate.toFixed(2)}%`}
-              isPositive={true}
               className="bg-gradient-to-br from-purple-600 to-purple-700"
             />
           </div>
@@ -254,32 +246,24 @@ export default function DeviceView() {
               title="Desktop Clicks"
               value={desktopData.clicks.toLocaleString()}
               icon={<MousePointerClick className="w-6 h-6" />}
-              trend={`CTR: ${desktopCTR.toFixed(2)}%`}
-              isPositive={true}
               className="bg-gradient-to-br from-cyan-600 to-cyan-700"
             />
             <CardMetric
               title="Desktop Spend"
               value={`$${desktopData.spend.toLocaleString()}`}
               icon={<TrendingUp className="w-6 h-6" />}
-              trend={`${desktopData.traffic.toFixed(0)}% of traffic`}
-              isPositive={false}
               className="bg-gradient-to-br from-red-600 to-red-700"
             />
             <CardMetric
               title="Desktop Revenue"
               value={`$${desktopData.revenue.toLocaleString()}`}
               icon={<DollarSign className="w-6 h-6" />}
-              trend={`ROAS: ${desktopROAS.toFixed(2)}`}
-              isPositive={true}
               className="bg-gradient-to-br from-emerald-600 to-emerald-700"
             />
             <CardMetric
               title="Desktop Conversions"
               value={desktopData.conversions.toLocaleString()}
               icon={<Target className="w-6 h-6" />}
-              trend={`Conv. Rate: ${desktopConversionRate.toFixed(2)}%`}
-              isPositive={true}
               className="bg-gradient-to-br from-violet-600 to-violet-700"
             />
           </div>
@@ -289,12 +273,10 @@ export default function DeviceView() {
             <BarChart
               title="Revenue by Device"
               data={revenueByDevice}
-              color="#10B981"
             />
             <BarChart
               title="Spend by Device"
               data={spendByDevice}
-              color="#F59E0B"
             />
           </div>
 
@@ -302,12 +284,10 @@ export default function DeviceView() {
             <BarChart
               title="Clicks by Device"
               data={clicksByDevice}
-              color="#3B82F6"
             />
             <BarChart
               title="Conversions by Device"
               data={conversionsByDevice}
-              color="#8B5CF6"
             />
           </div>
 
