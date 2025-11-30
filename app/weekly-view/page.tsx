@@ -159,32 +159,24 @@ export default function WeeklyView() {
               title="Total Revenue"
               value={`$${totalRevenue.toLocaleString()}`}
               icon={<DollarSign className="w-6 h-6" />}
-              trend={avgWeeklyRevenue > 0 ? `Avg: $${avgWeeklyRevenue.toLocaleString()} / week` : undefined}
-              isPositive={true}
               className="bg-gradient-to-br from-green-600 to-green-700"
             />
             <CardMetric
               title="Total Spend"
               value={`$${totalSpend.toLocaleString()}`}
               icon={<TrendingUp className="w-6 h-6" />}
-              trend={avgWeeklySpend > 0 ? `Avg: $${avgWeeklySpend.toLocaleString()} / week` : undefined}
-              isPositive={false}
               className="bg-gradient-to-br from-orange-600 to-orange-700"
             />
             <CardMetric
               title="Total Clicks"
               value={totalClicks.toLocaleString()}
               icon={<BarChart3 className="w-6 h-6" />}
-              trend={weeklyData.length > 0 ? `${(totalClicks / weeklyData.length).toFixed(0)} / week` : undefined}
-              isPositive={true}
               className="bg-gradient-to-br from-blue-600 to-blue-700"
             />
             <CardMetric
               title="Total Conversions"
               value={totalConversions.toLocaleString()}
               icon={<Calendar className="w-6 h-6" />}
-              trend={weeklyData.length > 0 ? `${(totalConversions / weeklyData.length).toFixed(0)} / week` : undefined}
-              isPositive={true}
               className="bg-gradient-to-br from-purple-600 to-purple-700"
             />
           </div>

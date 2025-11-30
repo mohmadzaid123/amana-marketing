@@ -172,13 +172,13 @@ export default function RegionView() {
     }));
 
   const tableColumns = [
-    { key: "region", label: "Region", sortable: true },
-    { key: "country", label: "Country", sortable: true },
-    { key: "revenue", label: "Revenue", sortable: true },
-    { key: "spend", label: "Spend", sortable: true },
-    { key: "clicks", label: "Clicks", sortable: true },
-    { key: "conversions", label: "Conversions", sortable: true },
-    { key: "roas", label: "ROAS", sortable: true }
+    { key: "region", header: "Region", sortable: true },
+    { key: "country", header: "Country", sortable: true },
+    { key: "revenue", header: "Revenue", sortable: true },
+    { key: "spend", header: "Spend", sortable: true },
+    { key: "clicks", header: "Clicks", sortable: true },
+    { key: "conversions", header: "Conversions", sortable: true },
+    { key: "roas", header: "ROAS", sortable: true }
   ];
 
   if (loading) {
@@ -218,32 +218,24 @@ export default function RegionView() {
               title="Total Regions"
               value={totalRegions.toString()}
               icon={<Globe className="w-6 h-6" />}
-              trend="Active markets"
-              isPositive={true}
               className="bg-gradient-to-br from-indigo-600 to-indigo-700"
             />
             <CardMetric
               title="Total Revenue"
               value={`$${totalRevenue.toLocaleString()}`}
               icon={<DollarSign className="w-6 h-6" />}
-              trend={`Avg: $${(totalRevenue / totalRegions).toLocaleString()} / region`}
-              isPositive={true}
               className="bg-gradient-to-br from-green-600 to-green-700"
             />
             <CardMetric
               title="Total Spend"
               value={`$${totalSpend.toLocaleString()}`}
               icon={<TrendingUp className="w-6 h-6" />}
-              trend={`Avg: $${(totalSpend / totalRegions).toLocaleString()} / region`}
-              isPositive={false}
               className="bg-gradient-to-br from-orange-600 to-orange-700"
             />
             <CardMetric
               title="Avg ROAS"
               value={((totalRevenue / totalSpend) || 0).toFixed(2)}
               icon={<MapPin className="w-6 h-6" />}
-              trend="Return on ad spend"
-              isPositive={true}
               className="bg-gradient-to-br from-purple-600 to-purple-700"
             />
           </div>
